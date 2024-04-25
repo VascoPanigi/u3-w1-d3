@@ -4,7 +4,8 @@ import MyNavbar from "./components/MyNavbar";
 import MyHero from "./components/MyHero";
 // import AllTheBooks from "./components/AllTheBooks";
 import MyFooter from "./components/MyFooter";
-import BookList from "./components/BookList";
+// import BookListHooks from "./components/BookListHooks";
+import BookListClass from "./components/BookListClass";
 
 function App() {
   return (
@@ -14,7 +15,8 @@ function App() {
       </header>
       <main className="bg-dark">
         <MyHero />
-        <BookList />
+        {/* <BookListHooks /> */}
+        <BookListClass />
       </main>
       <footer className="bg-dark">
         <MyFooter />

@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import { Container, Row, Form, FormControl } from "react-bootstrap";
 import SingleBook from "./SingleBook";
 import fantasy from "../data/fantasy.json";
+import history from "../data/history.json";
+import horror from "../data/horror.json";
+import romance from "../data/romance.json";
+import scifi from "../data/scifi.json";
 
-const BookList = () => {
+const BookListClass = () => {
   const [searchValue, setSearchValue] = useState("");
   const [filteredBooks, setBooks] = useState(fantasy);
 
   const handleSearch = (e) => {
-    e.preventDefault();
+    // e.preventDefault()
     const searchValue = e.target.value.toLowerCase();
     setSearchValue(searchValue);
 
@@ -18,8 +22,16 @@ const BookList = () => {
 
   return (
     <Container>
-      <Form>
-        <FormControl type="text" placeholder="Search a book..." onChange={handleSearch} value={searchValue} />
+      <Form className="mt-5">
+        <FormControl
+          type="text"
+          placeholder="Search a book..."
+          onChange={handleSearch}
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+          value={searchValue}
+        />
       </Form>
       <Row className="mt-5">
         {filteredBooks.map((book) => (
@@ -30,4 +42,4 @@ const BookList = () => {
   );
 };
 
-export default BookList;
+export default BookListClass;
